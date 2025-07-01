@@ -1,17 +1,23 @@
 package handlers
 
 import (
+	"GoProjects/ReelingIt/database"
+	"GoProjects/ReelingIt/logger"
 	"GoProjects/ReelingIt/models"
 	"encoding/json"
 	"net/http"
 )
 type MovieHandler struct {
+	Storage database.MovieStorage // Using interface lets us change the database later
+	Logger  *logger.Logger
 }
 
 func (h * MovieHandler) writeJSONResponse(w http.ResponseWriter, data interface{}){
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(data); err != nil {
+	    h.Logger.Error("Failed to encode JSON response", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+	
 	}
 }
 
@@ -29,7 +35,7 @@ func (h *MovieHandler) GetTopMovies(w http.ResponseWriter, r *http.Request){
 			},
 			Overview:    nil,
 			Score:       nil,
-			Popularitey: nil,
+			Popularity:  nil,
 			Keywords: []string{"dream", "thief", "subconscious"},
 		},
 	}
@@ -51,7 +57,7 @@ func (h *MovieHandler) GetRandomMovies(w http.ResponseWriter, r *http.Request) {
 			},
 			Overview:    nil,
 			Score:       nil,
-			Popularitey: nil,
+			Popularity: nil,
 			Keywords: []string{"dream", "thief", "subconscious"},
 		},
 	}
