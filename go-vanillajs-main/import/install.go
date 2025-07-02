@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// Database connection string for your remote PostgreSQL database
-	connStr := "***REMOVED***"
+	connStr := ""
 
 	// Open database connection
 	db, err := sql.Open("postgres", connStr)
