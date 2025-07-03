@@ -1,15 +1,22 @@
 package main
 
 import (
-	"encoding/json"
+
+	"flag"
 	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/AhmedAli1199/WorkoutManager/Internals/app"
+	"github.com/AhmedAli1199/WorkoutManager/Internals/routes"
 )
 
 func main(){
+
+	var port int
+	flag.IntVar(&port, "port", 8000, "Port to run the server on")
+	flag.Parse()
+
 
 	app, err := app.NewApplication()
 
@@ -20,23 +27,18 @@ func main(){
 
 	app.Logger.Println("Application started successfully")
 
-	http.HandleFunc("/health", HealthChecker)
-
+	
+	r := routes.SetupRoutes(app)
 	server := http.Server{
-		Addr:   ":8000",
+		Addr:      fmt.Sprintf(":%d", port),
+		Handler:   r,
 		ReadTimeout: 10 * time.Second,
 		WriteTimeout: 30 * time.Second,
 	}
 
 	server.ListenAndServe()
-	app.Logger.Println("Server is running on port 8000")
+	app.Logger.Println("Server is running on port", port)
 
 }
 
-func HealthChecker(w http.ResponseWriter, r *http.Request){
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	response := map[string]string{"status": "healthy"}
-	json.NewEncoder(w).Encode(response)
-	fmt.Println("Health check endpoint hit")
-}
+
