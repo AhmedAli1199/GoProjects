@@ -60,7 +60,8 @@ func main() {
 	}
       
 
-
+	//Initialize a movie handler which will use the movie repository to handle requests
+	// This allows us to change the database implementation later without changing the handler code
 	movieHandler := handlers.MovieHandler{
 		Storage: movieRepo,
 		Logger:  loggerInstance,
@@ -69,6 +70,13 @@ func main() {
 	http.HandleFunc("/api/movies/top", movieHandler.GetTopMovies)
 
 	http.HandleFunc("/api/movies/random", movieHandler.GetRandomMovies)
+
+	http.HandleFunc("/api/movies", movieHandler.GetMovieByID)
+
+	http.HandleFunc("/api/genres", movieHandler.GetGenres)
+
+	http.HandleFunc("/api/movies/search", movieHandler.SearchMovies)
+
 
 	http.Handle("/", http.FileServer(http.Dir("public")))
 
