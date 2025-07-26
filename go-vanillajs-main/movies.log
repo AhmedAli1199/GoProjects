@@ -1,0 +1,16 @@
+ERROR: 2025/07/26 15:25:24 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:24 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:25 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:25 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:26 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:26 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:27 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:27 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:53 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:25:53 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:29:18 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:29:18 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:34:59 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:34:59 logger.go:35: Failed to get top movies: pq: Tenant or user not found
+ERROR: 2025/07/26 15:35:01 logger.go:35: Failed to execute query: pq: Tenant or user not found
+ERROR: 2025/07/26 15:35:01 logger.go:35: Failed to get top movies: pq: Tenant or user not found
